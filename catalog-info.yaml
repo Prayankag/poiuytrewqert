@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: poiuytrewqert
+  description: provision EC2 server for dev environment
+spec:
+  owner: group:default/guests
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: poiuytrewqert
+  description: provision EC2 server for dev environment
+  annotations:
+     backstage.io/techdocs-ref: dir:./docs
+     github.com/project-slug: prayankag/poiuytrewqert
+     github-actions: enabled
+     github.com/workflows: |
+      [
+        {
+          "workflow": "instance.yaml",
+          "label": "Start",
+          "tooltip": "click here and start the workflow process"
+        }
+      ]
+spec:
+  type: service
+  owner: group:default/guests
+  lifecycle: experimental
+  system: poiuytrewqert
+  providesApis:
+    - poiuytrewqert
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: poiuytrewqert
+  description: provision EC2 server for dev environment
+spec:
+  type: internal
+  lifecycle: experimental
+  owner: group:default/guests
+  system: poiuytrewqert
+  definition: "provision EC2 server for dev environment"
